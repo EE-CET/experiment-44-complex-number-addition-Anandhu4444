@@ -24,6 +24,7 @@ class Complex {
         else
             System.out.println(real + " - i" + (-imag));
     }
+}
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -45,4 +46,4 @@ class Complex {
 
         sc.close();
     }
-}
+

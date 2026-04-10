@@ -1,47 +1,31 @@
 import java.util.Scanner;
 
 class Complex {
-    double real;
-    double imag;
+    int real, imag;
 
-    // Constructor to initialize values
-    Complex(double real, double imag) {
+    Complex(int real, int imag) {
         this.real = real;
         this.imag = imag;
     }
 
-    // Method to add two complex numbers
-    public Complex add(Complex other) {
-        return new Complex(this.real + other.real, this.imag + other.imag);
-    }
-
-    // Method to display the result in a + ib format
-    public void display() {
-        String sign = (this.imag >= 0) ? "+" : "-";
-        System.out.println(this.real + " " + sign + " i" + Math.abs(this.imag));
+    static Complex add(Complex c1, Complex c2) {
+        return new Complex(c1.real + c2.real, c1.imag + c2.imag);
     }
 }
 
-public class Main {
+public class ComplexAddition {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int r1 = sc.nextInt();
+        int i1 = sc.nextInt();
+        int r2 = sc.nextInt();
+        int i2 = sc.nextInt();
 
-        // Input for first number
-        double r1 = sc.nextDouble();
-        double i1 = sc.nextDouble();
-        Complex num1 = new Complex(r1, i1);
+        Complex c1 = new Complex(r1, i1);
+        Complex c2 = new Complex(r2, i2);
+        Complex sum = Complex.add(c1, c2);
 
-        // Input for second number
-        double r2 = sc.nextDouble();
-        double i2 = sc.nextDouble();
-        Complex num2 = new Complex(r2, i2);
-
-        // Perform addition
-        Complex result = num1.add(num2);
-
-        // Output result
-        result.display();
-        
+        System.out.println(sum.real + " + " + sum.imag + "i");
         sc.close();
     }
 }
